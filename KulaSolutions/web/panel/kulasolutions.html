@@ -1,0 +1,139 @@
+<!--
+ Copyright (C) Kula Solutions
+
+ It is open source - Licensed under - "Do what the fuck you please with it"
+
+ @author Piotr Kula
+-->
+<!-- This is outside of the accordion, so will always be on top of the tab -->
+<div id="_kulasolutionsPanelDisabled"><br><br></div>
+<div id="_kulasolutionsPanel">
+    <div>
+        <form role="form">
+            <div class="form-group">
+                <label for="postTweet">Kula Solutions Panel</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.nothing()">Fake Button</button>
+                <!--<input type="text" maxlength="140" class="form-control" id="postTweetInput" placeholder="Tweet Text">-->
+            </div>
+        </form>
+    </div>
+
+    <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
+    <div id="kulasolutionsAccordion">
+        <h3>Test Options</h3>
+        <div>
+            <div id="kulasolutionsPollTable" style="height: 120px; overflow: auto;" />
+            <small>
+                <i>
+                    bla bla bla - bla bla?!
+                </i>
+            </small>
+            <br><br>
+
+            <form role="form">
+                <div class="form-group" onkeypress="return event.keyCode != 13">
+                    <label for="pollDelayMentionsTweet">Mentions Poll Delay</label>
+                    <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDatakulasolutions('polldelay_mentions')">Update</button>
+                    <input type="number" min="60" class="form-control" id="polldelay_mentionsTweetInput" placeholder="Seconds"
+                           data-toggle="tooltip" title="Poll delay in seconds. Minimum is 60.">
+                </div>
+            </form>
+
+            <form role="form">
+                <div class="form-group" onkeypress="return event.keyCode != 13">
+                    <label for="pollDelayRetweetsTweet">Retweets Poll Delay</label>
+                    <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDatakulasolutions('polldelay_retweets')">Update</button>
+                    <input type="number" min="60" class="form-control" id="polldelay_retweetsTweetInput" placeholder="Seconds"
+                           data-toggle="tooltip" title="Poll delay in seconds. Minimum is 60.">
+                </div>
+            </form>
+
+            <form role="form">
+                <div class="form-group" onkeypress="return event.keyCode != 13">
+                    <label for="pollDelayHomeTweet">Home Timeline Poll Delay</label>
+                    <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDatakulasolutions('polldelay_hometimeline')">Update</button>
+                    <input type="number" min="60" class="form-control" id="polldelay_hometimelineTweetInput" placeholder="Seconds"
+                           data-toggle="tooltip" title="Poll delay in seconds. Minimum is 60.">
+                </div>
+            </form>
+
+            <form role="form">
+                <div class="form-group" onkeypress="return event.keyCode != 13">
+                    <label for="pollDelayUserTweet">User Timeline Poll Delay</label>
+                    <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDatakulasolutions('polldelay_usertimeline')">Update</button>
+                    <input type="number" min="15" class="form-control" id="polldelay_usertimelineTweetInput" placeholder="Seconds"
+                           data-toggle="tooltip" title="Poll delay in seconds. Minimum is 15.">
+                </div>
+            </form>
+        </div>
+
+        <h3>More Options</h3>
+        <div>
+            <div id="kulasolutionsPostTable" style="height: 100px; overflow: auto;" />
+
+            <form role="form">
+                <div class="form-group" onkeypress="return event.keyCode != 13">
+                    <label for="postOnlineTweet">Stream Online Tweet</label>
+                    <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDatakulasolutions('message_online')">Update</button>
+                    <input type="text" maxlength="140" class="form-control" id="message_onlineTweetInput" placeholder="Tweet Text"
+                           data-toggle="tooltip" title="Tags: (title) (game) (twitchurl)">
+                </div>
+            </form>
+
+            <form role="form">
+                <div class="form-group" onkeypress="return event.keyCode != 13">
+                    <label for="postGameChangeTweet">Game Change Tweet</label>
+                    <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDatakulasolutions('message_gamechange')">Update</button>
+                    <input type="text" maxlength="140" class="form-control" id="message_gamechangeTweetInput" placeholder="Tweet Text"
+                           data-toggle="tooltip" title="Tags: (title) (game) (twitchurl)">
+                </div>
+            </form>
+
+            <form role="form">
+                <div class="form-group" onkeypress="return event.keyCode != 13">
+                    <label for="postAutoUpdateTweet">Auto-Tweet Stream Status Tweet</label>
+                    <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDatakulasolutions('message_update')">Update</button>
+                    <input type="text" maxlength="140" class="form-control" id="message_updateTweetInput" placeholder="Tweet Text"
+                           data-toggle="tooltip" title="Tags: (title) (game) (twitchurl) (uptime)">
+                </div>
+            </form>
+
+            <form role="form">
+                <div class="form-group" onkeypress="return event.keyCode != 13">
+                    <label for="postDelayUpdateTweet">Auto Updates Post Delay</label>
+                    <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDatakulasolutions('postdelay_update')">Update</button>
+                    <input type="number" min="180" class="form-control" id="postdelay_updateTweetInput" placeholder="Minutes"
+                           data-toggle="tooltip" title="Post delay in minutes. Minimum is 180.">
+                </div>
+            </form>
+        </div>
+
+        <h3>Bla Bla Options</h3>
+        <div>
+            <div id="kulasolutionsRewardTable" style="height: 80px; overflow: auto;" />
+
+            <form role="form">
+                <div class="form-group" onkeypress="return event.keyCode != 13">
+                    <label for="rewardPointsTweet">Reward Points for Retweeting</label>
+                    <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDatakulasolutions('reward_points')">Update</button>
+                    <input type="number" min="0" class="form-control" id="reward_pointsTweetInput" placeholder="Points"
+                           data-toggle="tooltip" title="Points rewarded for retweeting posts.">
+                </div>
+            </form>
+
+            <form role="form">
+                <div class="form-group" onkeypress="return event.keyCode != 13">
+                    <label for="rewardCoodownTweet">Hours Between Rewards for User for Retweeting</label>
+                    <button type="button" class="btn btn-primary inline pull-right" onclick="$.updateDatakulasolutions('reward_cooldown')">Update</button>
+                    <input type="number" min="0" class="form-control" id="reward_cooldownTweetInput" placeholder="Hours"
+                           data-toggle="tooltip" title="Time in hours that must pass before user can receive a reward between retweets.  Fractions are allowed (0.5 = 30 minutes).">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Run the Acordion -->
+<script>$("#kulasolutionsAccordion").accordion({ clearStyle: true, heightStyle: "panel", icons: null });</script>
+<script>$('[data-toggle="tooltip"]').tooltip({ trigger: 'hover' });</script>
+<script>handleInputFocus();</script>
